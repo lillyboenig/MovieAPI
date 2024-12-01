@@ -12,14 +12,14 @@ app.use(express.json());
 // Import routes
 const movieRoutes = require('./routes/movieRoutes');
 const genreRoutes = require('./routes/genreRoutes');
-const userRoutes = require('./routes/userRoutes');
+const customerRoutes = require('./routes/customerRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const favoriteRoutes = require('./routes/favoriteRoutes');
 
 // Use routes
 app.use('/movies', movieRoutes);
 app.use('/genres', genreRoutes);
-app.use('/users', userRoutes);
+app.use('/customer', customerRoutes);
 app.use('/reviews', reviewRoutes);
 app.use('/favorites', favoriteRoutes);
 
