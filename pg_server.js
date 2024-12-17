@@ -10,7 +10,7 @@ app.listen(3001, () => {
     console.log('The server is running!!');
 });
 
-export default pgPool = new Pool({
+const pgPool = new pg.Pool({
     user: process.env.PG_USER,
     password: process.env.PG_PASSWORD,
     database: process.env.PG_DATABASE,
@@ -30,3 +30,5 @@ async function connect(){
     }
 
 }
+
+export {pgPool};
