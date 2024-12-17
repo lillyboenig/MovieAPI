@@ -1,27 +1,19 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const db = require('./db');
+import express, { urlencoded } from 'express';
 
-dotenv.config();
-const app = express();
+var app = express();
 
-app.use(cors());
-app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-// Import routes
-const movieRoutes = require('./routes/movieRoutes');
-const genreRoutes = require('./routes/genreRoutes');
-const customerRoutes = require('./routes/customerRoutes');
-const reviewRoutes = require('./routes/reviewRoutes');
-const favoriteRoutes = require('./routes/favoriteRoutes');
 
-// Use routes
-app.use('/movies', movieRoutes);
-app.use('/genres', genreRoutes);
-app.use('/customer', customerRoutes);
-app.use('/reviews', reviewRoutes);
-app.use('/favorites', favoriteRoutes);
+app.listen(3001, () => {
+    console.log('The server is running!!');
+});
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get('/', (req, res) => {
+    res.send('You just called endpoint');
+})
+
+app.get('/customer', (req, res) => {
+    res.send('Getting user information');
+})
+
