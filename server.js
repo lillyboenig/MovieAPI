@@ -5,10 +5,6 @@ var app = express();
 app.use(express.urlencoded({extended: true}));
 
 
-app.listen(3001, () => {
-    console.log('The server is running!!');
-});
-
 app.get('/', (req, res) => {
     res.send('You just called endpoint');
 })
